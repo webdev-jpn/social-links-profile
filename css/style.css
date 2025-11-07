@@ -1,0 +1,100 @@
+body {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 0%, 8%);
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  max-width: 322px;
+  width: 100%;
+  background-color: hsl(0deg, 0%, 12%);
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+}
+@media (min-width: 1440px) {
+  .card {
+    max-width: 380px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.card__image,
+.card__text,
+.card__links {
+  max-width: 280px;
+  width: 100%;
+  margin: 0 auto;
+}
+@media (min-width: 1440px) {
+  .card__image,
+.card__text,
+.card__links {
+    max-width: 300px;
+  }
+}
+
+.card__image {
+  max-width: 90px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.card__image img {
+  border-radius: 50%;
+}
+
+.card__text-name {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.card__text-location {
+  color: hsl(75deg, 94%, 57%);
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.card__text-profession {
+  margin-top: 30px;
+}
+
+.card__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.card__links a {
+  background-color: hsl(0deg, 0%, 20%);
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-radius: 10px;
+  width: 100%;
+  display: block;
+}
+.card__links a:hover {
+  cursor: pointer;
+  background-color: hsl(75deg, 94%, 57%);
+}
+.card__links a:active {
+  background-color: #b0e907;
+  transform: scale(0.98);
+}
+.card__links a:focus-visible {
+  outline: 2px solid hsl(75deg, 94%, 57%);
+  outline-offset: 2px;
+}

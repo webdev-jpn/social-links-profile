@@ -1,0 +1,134 @@
+// Breakpoints
+$breakpoints: (
+  mobile: 375px,
+  tablet: 768px,
+  laptop: 1024px,
+  desktop: 1440px,
+);
+
+// Mixin
+@mixin mq($device) {
+  @media (min-width: map-get($breakpoints, $device)) {
+    @content;
+  }
+}
+
+// Colors
+$accent-color: hsl(75, 94%, 57%);
+$text-color: hsl(0, 0%, 100%);
+$button-bg-color: hsl(0, 0%, 20%);
+$card-bg-color: hsl(0, 0%, 12%);
+$body-bg-color: hsl(0, 0%, 8%);
+
+// Fonts
+$font-size-paragraph: 14px;
+$font-family: "Inter", sans-serif;
+$font-weight-regular: 400;
+$font-weight-medium: 600;
+$font-weight-bold: 700;
+
+body {
+  font-size: $font-size-paragraph;
+  font-weight: $font-weight-medium;
+  font-family: $font-family;
+  color: $text-color;
+  background-color: $body-bg-color;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  max-width: 322px;
+  width: 100%;
+  background-color: $card-bg-color;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  // padding: 24px clamp(8px, 5vw, 24px);
+
+  @include mq(desktop) {
+    max-width: 380px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.card__image,
+.card__text,
+.card__links {
+  max-width: 280px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include mq(desktop) {
+    max-width: 300px;
+  }
+}
+
+.card__image {
+  max-width: 90px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.card__text {
+}
+
+.card__text-name {
+  font-size: 24px;
+  font-weight: $font-weight-bold;
+}
+
+.card__text-location {
+  color: $accent-color;
+  font-weight: $font-weight-medium;
+  margin-top: 10px;
+}
+
+.card__text-profession {
+  margin-top: 30px;
+}
+
+.card__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  a {
+    background-color: $button-bg-color;
+    transition: background-color 0.3s ease;
+    font-weight: $font-weight-bold;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 10px;
+    width: 100%;
+    display: block;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $accent-color;
+    }
+
+    &:active {
+      background-color: darken($accent-color, 10%);
+      transform: scale(0.98);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $accent-color;
+      outline-offset: 2px;
+    }
+  }
+}
